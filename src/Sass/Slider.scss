@@ -1,0 +1,243 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.slider-container {
+  &-success-title {
+    text-align: left;
+    color: rgb(25, 42, 225);
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: 32px;
+    padding: 0;
+    z-index: 99;
+
+    @media (min-width: 768px) {
+      padding: 0 22px;
+    }
+  }
+}
+
+.slider-slideshow {
+  height: 100vh;
+  width: 100%;
+  &-slides {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    background: black;
+
+    &-img1 {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 80%;
+      background-image: url(../Images/pic1.jpg);
+      background-size: cover;
+      background-position: 70% 0;
+
+      @media (min-width: 768px) {
+        background-position: center;
+        top: 0;
+        width: 70%;
+        height: 100%;
+      }
+    }
+    &-img2 {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 80%;
+      background-image: url(../Images/pic2.jpg);
+      background-size: cover;
+      background-position: 70% 0;
+
+      @media (min-width: 768px) {
+        background-position: center;
+        top: 0;
+        width: 70%;
+        height: 100%;
+      }
+    }
+    &-img3 {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 80%;
+      background-image: url(../Images/pic3.jpg);
+      background-size: cover;
+      background-position: 70% 0;
+
+      @media (min-width: 768px) {
+        background-position: center;
+        top: 0;
+        width: 70%;
+        height: 100%;
+      }
+    }
+
+    &-text {
+      position: absolute;
+      top: 35%;
+      left: 0;
+      color: rgb(255, 255, 255);
+      overflow: hidden;
+      //   border: 1px solid wheat;
+      padding: 0 22px;
+      text-align: start;
+      width: 100%;
+
+      @media (min-width: 768px) {
+        padding: 0 98px;
+        width: 60%;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        font-size: 28px;
+        text-decoration: none;
+        color: white;
+        position: relative;
+        margin: 0;
+      }
+    }
+    &-heading {
+      position: relative;
+      width: 100%;
+      line-height: 1.2;
+      font-weight: 700;
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      white-space: normal;
+
+      @media (min-width: 768px) {
+        font-size: 70px;
+      }
+    }
+    &-title {
+      display: inline-block;
+      position: relative;
+    }
+    // &-title1 {
+    //   display: block;
+    //   overflow: hidden;
+    // }
+
+    &-link {
+      display: inline-block;
+    }
+  }
+}
+
+.swiper-slide-active .slider-slideshow-slides-title {
+  animation: revealText 1.2s ease-in forwards;
+}
+
+// .swiper-slide-active .slider-slideshow-slides-title1 {
+//   animation: revealText 2.8s cubic-bezier(0.42, 0, 0.09, 0.89) forwards;
+// }
+.swiper-slide-active .slider-slideshow-slides-text a {
+  animation: link 5.3s forwards;
+}
+
+.swiper-slide-active .slider-slideshow-slides-img1 {
+  animation: flippingShapes 1.8s ease-in-out forwards;
+}
+.swiper-slide-active .slider-slideshow-slides-img2 {
+  animation: flippingShapes 1.8s ease-in-out forwards;
+}
+.swiper-slide-active .slider-slideshow-slides-img3 {
+  animation: flippingShapes 1.8s ease-in-out forwards;
+}
+
+@keyframes revealText {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+    // transition: transform 0.1ms;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+    // transition: transform 0.1s;
+  }
+}
+
+@keyframes link {
+  from {
+    opacity: 0;
+    transform: translateY(0%) rotate(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: translatY(-100%) rotate(0deg);
+  }
+}
+
+@keyframes flippingShapes {
+  0% {
+    clip-path: inset(39% 39% 38% 37%);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.swiper-button-prev {
+  position: absolute;
+  top: 30%;
+  left: 6%;
+  color: #fff;
+  background: transparent;
+  border-radius: 50%;
+  border: 1px solid white;
+  padding: 20px;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 20px;
+}
+
+.swiper-button-next {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  background: transparent;
+  border-radius: 50%;
+  border: 1px solid white;
+  padding: 20px;
+  color: #fff;
+  @media (min-width: 768px) {
+    left: 10%;
+  }
+}
+
+.swiper-pagination {
+  position: absolute;
+  top: 28%;
+  color: white;
+  z-index: 99;
+  left: 35%;
+  padding: 4px 16px;
+
+  @media (min-width: 768px) {
+    left: 15%;
+    font-size: 18px;
+  }
+}
